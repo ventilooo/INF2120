@@ -58,4 +58,25 @@ public class Gen<U extends Individu> implements Genealogie {
         moi.definirParent2(parent2.laReference());
     }
 
+    public boolean testParent1(Individu moi, Individu parent1) {
+        for (Individu element : listeIndividu) {
+            if (element.leParent1() == parent1.laReference()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean testParent2(Individu moi, Individu parent2) {
+        for (Individu element : listeIndividu) {
+            if (element.leParent2() == parent2.laReference()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean testParentsConnus(Individu moi) {
+        return moi.leParent1() > -1 && moi.leParent2() > -1;
+    }
 }

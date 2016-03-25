@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="190558e2-4f6f-4ff7-b6e5-855992a8a043" name="Default" comment="[ADD] Les enfants">
+    <list default="true" id="190558e2-4f6f-4ff7-b6e5-855992a8a043" name="Default" comment="[Fix] lesEnfants">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TP2/tp2/Gen.class" afterPath="$PROJECT_DIR$/out/production/TP2/tp2/Gen.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tp2/Gen.java" afterPath="$PROJECT_DIR$/src/tp2/Gen.java" />
     </list>
@@ -38,12 +39,12 @@
           <file leaf-file-name="Gen.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/tp2/Gen.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.67972744">
-                  <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+                <state vertical-scroll-proportion="0.68057925">
+                  <caret line="93" column="54" selection-start-line="93" selection-start-column="54" selection-end-line="93" selection-end-column="54" />
                   <folding>
                     <element signature="imports" expanded="true" />
-                    <element signature="e#2529#2530#0" expanded="true" />
-                    <element signature="e#2596#2597#0" expanded="true" />
+                    <element signature="e#2786#2787#0" expanded="true" />
+                    <element signature="e#2853#2854#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -56,8 +57,8 @@
           <file leaf-file-name="TestGenealogie.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/test/TestGenealogie.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.38245314">
-                  <caret line="178" column="25" selection-start-line="178" selection-start-column="25" selection-end-line="178" selection-end-column="25" />
+                <state vertical-scroll-proportion="0.34412265">
+                  <caret line="79" column="65" selection-start-line="79" selection-start-column="65" selection-end-line="79" selection-end-column="65" />
                   <folding>
                     <element signature="e#4552#4562#0" expanded="true" />
                     <element signature="e#4835#4845#0" expanded="true" />
@@ -66,21 +67,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="ReflectiveCallable.class" pinned="false" current-in-tab="false">
-            <entry file="jar://$USER_HOME$/Downloads/junit-4.12.jar!/org/junit/internal/runners/model/ReflectiveCallable.class">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-8.75">
-                  <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file leaf-file-name="Genealogie.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/tda/Genealogie.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
+                  <caret line="49" column="20" selection-start-line="49" selection-start-column="20" selection-end-line="49" selection-end-column="20" />
                   <folding />
                 </state>
               </provider>
@@ -118,9 +109,9 @@
         <option value="$PROJECT_DIR$/src/tda/Liste.java" />
         <option value="$PROJECT_DIR$/src/util/Maillon.java" />
         <option value="$PROJECT_DIR$/src/util/Personne.java" />
-        <option value="$PROJECT_DIR$/src/test/TestGenealogie.java" />
         <option value="$PROJECT_DIR$/src/util/ListeChaine.java" />
         <option value="$PROJECT_DIR$/src/tda/Genealogie.java" />
+        <option value="$PROJECT_DIR$/src/test/TestGenealogie.java" />
         <option value="$PROJECT_DIR$/src/tp2/Gen.java" />
       </list>
     </option>
@@ -731,7 +722,7 @@
       <workItem from="1458361094555" duration="4000" />
       <workItem from="1458690540995" duration="827000" />
       <workItem from="1458785049674" duration="10000" />
-      <workItem from="1458937266481" duration="4921000" />
+      <workItem from="1458937266481" duration="6433000" />
     </task>
     <task id="LOCAL-00001" summary="[ADD] methodes de test des lien de parenté.">
       <created>1458942194040</created>
@@ -757,43 +748,49 @@
       <option name="project" value="LOCAL" />
       <updated>1458944604524</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="[Fix] lesEnfants">
+      <created>1458946338510</created>
+      <option name="number" value="00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1458946338510</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Test - 2016.03.25 at 18h 37m 36s.xml">
-      <configuration name="Test" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="Test - 2016.03.25 at 18h 38m 26s.xml">
-      <configuration name="Test" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="Test - 2016.03.25 at 18h 41m 48s.xml">
-      <configuration name="Test" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="Test - 2016.03.25 at 18h 45m 37s.xml">
-      <configuration name="Test" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="Test - 2016.03.25 at 18h 45m 41s.xml">
-      <configuration name="Test" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="Test - 2016.03.25 at 18h 46m 53s.xml">
-      <configuration name="Test" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="Test - 2016.03.25 at 18h 48m 52s.xml">
       <configuration name="Test" configurationId="JUnit" />
     </history-entry>
     <history-entry file="Test - 2016.03.25 at 18h 50m 48s.xml">
       <configuration name="Test" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestGenealogie_testLesEnfants - 2016.03.25 at 18h 35m 16s.xml">
+    <history-entry file="Test - 2016.03.25 at 19h 15m 08s.xml">
+      <configuration name="Test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestGenealogie_testLesEnfants - 2016.03.25 at 18h 53m 36s.xml">
       <configuration name="TestGenealogie.testLesEnfants" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestGenealogie_testLesEnfants - 2016.03.25 at 18h 37m 14s.xml">
+    <history-entry file="TestGenealogie_testLesEnfants - 2016.03.25 at 19h 08m 34s.xml">
+      <configuration name="TestGenealogie.testLesEnfants" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestGenealogie_testLesEnfants - 2016.03.25 at 19h 09m 26s.xml">
+      <configuration name="TestGenealogie.testLesEnfants" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestGenealogie_testLesEnfants - 2016.03.25 at 19h 09m 57s.xml">
+      <configuration name="TestGenealogie.testLesEnfants" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestGenealogie_testLesEnfants - 2016.03.25 at 19h 10m 08s.xml">
+      <configuration name="TestGenealogie.testLesEnfants" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestGenealogie_testLesEnfants - 2016.03.25 at 19h 14m 19s.xml">
+      <configuration name="TestGenealogie.testLesEnfants" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestGenealogie_testLesEnfants - 2016.03.25 at 19h 14m 45s.xml">
       <configuration name="TestGenealogie.testLesEnfants" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14050000" />
+    <option name="totallyTimeSpent" value="15562000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="2182" height="1402" extended-state="6" />
@@ -839,13 +836,22 @@
     <MESSAGE value="[ADD] methodes de test des lien de parenté." />
     <MESSAGE value="[ADD] mise de jour de la reference à chaque ajout d'individu" />
     <MESSAGE value="[ADD] Les enfants" />
-    <option name="LAST_COMMIT_MESSAGE" value="[ADD] Les enfants" />
+    <MESSAGE value="[Fix] lesEnfants" />
+    <option name="LAST_COMMIT_MESSAGE" value="[Fix] lesEnfants" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="16" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/TestGenealogie.java</url>
+          <line>69</line>
+          <properties />
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="26" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -860,8 +866,8 @@
           <caret line="43" column="18" selection-start-line="43" selection-start-column="18" selection-end-line="43" selection-end-column="18" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2529#2530#0" expanded="true" />
-            <element signature="e#2596#2597#0" expanded="true" />
+            <element signature="e#2786#2787#0" expanded="true" />
+            <element signature="e#2853#2854#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -891,8 +897,8 @@
           <caret line="43" column="18" selection-start-line="43" selection-start-column="18" selection-end-line="43" selection-end-column="18" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2529#2530#0" expanded="true" />
-            <element signature="e#2596#2597#0" expanded="true" />
+            <element signature="e#2786#2787#0" expanded="true" />
+            <element signature="e#2853#2854#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -922,8 +928,8 @@
           <caret line="29" column="19" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2529#2530#0" expanded="true" />
-            <element signature="e#2596#2597#0" expanded="true" />
+            <element signature="e#2786#2787#0" expanded="true" />
+            <element signature="e#2853#2854#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -953,8 +959,8 @@
           <caret line="29" column="19" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2529#2530#0" expanded="true" />
-            <element signature="e#2596#2597#0" expanded="true" />
+            <element signature="e#2786#2787#0" expanded="true" />
+            <element signature="e#2853#2854#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1025,10 +1031,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tda/Genealogie.java">
+    <entry file="jar://$USER_HOME$/Downloads/junit-4.12.jar!/org/junit/runners/ParentRunner.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
+        <state vertical-scroll-proportion="0.35384616">
+          <caret line="194" column="25" selection-start-line="194" selection-start-column="25" selection-end-line="194" selection-end-column="25" />
           <folding />
         </state>
       </provider>
@@ -1041,22 +1047,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/tda/Genealogie.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="49" column="20" selection-start-line="49" selection-start-column="20" selection-end-line="49" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Downloads/junit-4.12.jar!/org/junit/runners/model/FrameworkMethod.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8076923">
+          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/tp2/Gen.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.67972744">
-          <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.68057925">
+          <caret line="93" column="54" selection-start-line="93" selection-start-column="54" selection-end-line="93" selection-end-column="54" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2529#2530#0" expanded="true" />
-            <element signature="e#2596#2597#0" expanded="true" />
+            <element signature="e#2786#2787#0" expanded="true" />
+            <element signature="e#2853#2854#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/TestGenealogie.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38245314">
-          <caret line="178" column="25" selection-start-line="178" selection-start-column="25" selection-end-line="178" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.34412265">
+          <caret line="79" column="65" selection-start-line="79" selection-start-column="65" selection-end-line="79" selection-end-column="65" />
           <folding>
             <element signature="e#4552#4562#0" expanded="true" />
             <element signature="e#4835#4845#0" expanded="true" />

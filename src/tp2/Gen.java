@@ -44,11 +44,15 @@ public class Gen<U extends Individu> implements Genealogie {
             for (Individu element : listeIndividu) {
                 if (element.leParent2() == p2.laReference()) {
                     tmp.insererFin(element);
+                } else if (element.leParent1() == p2.laReference()) {
+                    tmp.insererFin(element);
                 }
             }
         } else if (p2 == null) {
             for (Individu element : listeIndividu) {
                 if (element.leParent1() == p1.laReference()) {
+                    tmp.insererFin(element);
+                } else if (element.leParent2() == p1.laReference()) {
                     tmp.insererFin(element);
                 }
             }
@@ -58,9 +62,9 @@ public class Gen<U extends Individu> implements Genealogie {
                         == p2.laReference()) {
                     tmp.insererFin(element);
                 }
+            }
         }
-            return tmp;
-        }
+        tmp.tri();
         return tmp;
     }
 

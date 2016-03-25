@@ -61,6 +61,9 @@ public class Gen<U extends Individu> implements Genealogie {
                 if (element.leParent1() == p1.laReference() && element.leParent2()
                         == p2.laReference()) {
                     tmp.insererFin(element);
+                } else if (element.leParent1() == p2.laReference() && element.leParent2()
+                        == p1.laReference()) {
+                    tmp.insererFin(element);
                 }
             }
         }

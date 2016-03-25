@@ -4,7 +4,6 @@ import tda.Genealogie;
 import tda.Individu;
 import tda.Liste;
 import util.ListeChaine;
-import util.Personne;
 
 
 /**
@@ -26,8 +25,24 @@ public class Gen<U extends Individu> implements Genealogie {
         return listeIndividu.elementPosition(pos);
     }
 
-    public Liste<Personne> lesParents(Individu moi) {
-        Liste<Personne> tmp = new ListeChaine<>();
+    public Liste<Individu> lesParents(Individu moi) {
+        Liste<Individu> tmp = new ListeChaine<>();
+        for (Individu element : listeIndividu) {
+            if (element.laReference() == moi.leParent1()) {
+                tmp.insererFin(element);
+            }
+        }
+        if (tmp.estVide()) {
+            tmp.insererFin(null);
+        }
+        for (Individu element : listeIndividu) {
+            if (element.laReference() == moi.leParent2()) {
+                tmp.insererFin(element);
+            }
+        }
+        if (tmp.longueur() == 1) {
+            tmp.insererFin(null);
+        }
         return tmp;
     }
 

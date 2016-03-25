@@ -40,10 +40,26 @@ public class Gen<U extends Individu> implements Genealogie {
 
     public Liste<Individu> lesEnfants(Individu p1, Individu p2) {
         Liste<Individu> tmp = new ListeChaine<>();
-        for (Individu element : listeIndividu) {
-            if (element.leParent1() == p1.laReference() && element.leParent2() == p2.laReference()) {
-                tmp.insererFin(element);
+        if (p1 == null) {
+            for (Individu element : listeIndividu) {
+                if (element.leParent2() == p2.laReference()) {
+                    tmp.insererFin(element);
+                }
             }
+        } else if (p2 == null) {
+            for (Individu element : listeIndividu) {
+                if (element.leParent1() == p1.laReference()) {
+                    tmp.insererFin(element);
+                }
+            }
+        } else {
+            for (Individu element : listeIndividu) {
+                if (element.leParent1() == p1.laReference() && element.leParent2()
+                        == p2.laReference()) {
+                    tmp.insererFin(element);
+                }
+        }
+            return tmp;
         }
         return tmp;
     }
@@ -54,16 +70,25 @@ public class Gen<U extends Individu> implements Genealogie {
     }
 
     public void ajout(Individu moi) {
-        listeIndividu.insererFin(moi);
         moi.definirLaReference(listeIndividu.longueur());
+        listeIndividu.insererFin(moi);
+
     }
 
     public void definirParent1(Individu moi, Individu parent1) {
-        moi.definirParent1(parent1.laReference());
+        if (parent1 == null) {
+            moi.definirParent1(-1);
+        } else {
+            moi.definirParent1(parent1.laReference());
+        }
     }
 
     public void definirParent2(Individu moi, Individu parent2) {
-        moi.definirParent2(parent2.laReference());
+        if (parent2 == null) {
+            moi.definirParent2(-1);
+        } else {
+            moi.definirParent2(parent2.laReference());
+        }
     }
 
     public boolean testParentsConnus(Individu moi) {

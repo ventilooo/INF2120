@@ -47,7 +47,8 @@ public class Gen<U extends Individu> implements Genealogie {
     }
 
     public void ajout(Individu moi) {
-        listeIndividu.insererDebut(moi);
+        listeIndividu.insererFin(moi);
+        moi.definirLaReference(listeIndividu.longueur());
     }
 
     public void definirParent1(Individu moi, Individu parent1) {
@@ -79,4 +80,5 @@ public class Gen<U extends Individu> implements Genealogie {
     public boolean testParentsConnus(Individu moi) {
         return moi.leParent1() > -1 && moi.leParent2() > -1;
     }
+
 }

@@ -55,8 +55,33 @@ public class Gen<U extends Individu> implements Genealogie {
 
     public Liste<Individu> lesEnfants(Individu p1, Individu p2) {
         Liste<Individu> tmp = new ListeChaine<>();
-        ajouterEnfants(p1, tmp);
-        ajouterEnfants(p2, tmp);
+        if (p1 == null) {
+            for (Individu element : listeIndividu) {
+                if (element.leParent2() == p2.laReference()) {
+                    tmp.insererFin(element);
+                } else if (element.leParent1() == p2.laReference()) {
+                    tmp.insererFin(element);
+                }
+            }
+        } else if (p2 == null) {
+            for (Individu element : listeIndividu) {
+                if (element.leParent1() == p1.laReference()) {
+                    tmp.insererFin(element);
+                } else if (element.leParent2() == p1.laReference()) {
+                    tmp.insererFin(element);
+                }
+            }
+        } else {
+            for (Individu element : listeIndividu) {
+                if (element.leParent1() == p1.laReference() && element.leParent2()
+                        == p2.laReference()) {
+                    tmp.insererFin(element);
+                } else if (element.leParent1() == p2.laReference() && element.leParent2()
+                        == p1.laReference()) {
+                    tmp.insererFin(element);
+                }
+            }
+        }
         tmp.tri();
         return tmp;
     }
@@ -93,18 +118,6 @@ public class Gen<U extends Individu> implements Genealogie {
             moi.definirParent2(-1);
         } else {
             moi.definirParent2(parent2.laReference());
-        }
-    }
-
-    public void ajouterEnfants(Individu parent, Liste<Individu> liste) {
-        if (parent != null) {
-            for (Individu element : listeIndividu) {
-                if (element.leParent1() == parent.laReference()) {
-                    liste.insererFin(element);
-                } else if (element.leParent2() == parent.laReference()) {
-                    liste.insererFin(element);
-                }
-            }
         }
     }
 

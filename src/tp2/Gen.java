@@ -27,20 +27,14 @@ public class Gen<U extends Individu> implements Genealogie {
 
     public Liste<Individu> lesParents(Individu moi) {
         Liste<Individu> tmp = new ListeChaine<>();
-        for (Individu element : listeIndividu) {
-            if (element.laReference() == moi.leParent1()) {
-                tmp.insererFin(element);
-            }
-        }
-        if (tmp.estVide()) {
+        if (moi.leParent1() > -1) {
+            tmp.insererFin(lIndividu(moi.leParent1()));
+        } else {
             tmp.insererFin(null);
         }
-        for (Individu element : listeIndividu) {
-            if (element.laReference() == moi.leParent2()) {
-                tmp.insererFin(element);
-            }
-        }
-        if (tmp.longueur() == 1) {
+        if (moi.leParent2() > -1) {
+            tmp.insererFin(lIndividu(moi.leParent2()));
+        } else {
             tmp.insererFin(null);
         }
         return tmp;

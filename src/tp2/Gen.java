@@ -94,14 +94,14 @@ public class Gen<U extends Individu> implements Genealogie {
 
     public Liste<Individu> lesPetitsEnfants(Individu p1, Individu p2) {
         Liste<Individu> tmp = new ListeChaine<>();
-        for (Individu element : listeIndividu) {
+        for (Individu element : lesEnfants(p1, p2)) {
             if (!lesEnfants(element, null).estVide()) {
                 for (Individu individu : lesEnfants(element, null)) {
                     tmp.insererFin(individu);
                 }
             }
         }
-
+        tmp.tri();
         return tmp;
     }
 

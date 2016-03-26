@@ -48,8 +48,14 @@ public class Gen<U extends Individu> implements Genealogie {
 
     public Liste<Individu> laFratrie(Individu moi) {
         Liste<Individu> tmp = new ListeChaine<>();
-        if (testParentsConnus(moi)) {
+        for (Individu element : listeIndividu) {
+            if (element.leParent1() == moi.leParent1() && element.leParent2() == moi.leParent2() && !element.equals(moi)) {
+                tmp.insererFin(element);
+            } else if (element.leParent1() == moi.leParent2() && element.leParent2() == moi.leParent1() && !element.equals(moi)) {
+                tmp.insererFin(element);
+            }
         }
+        tmp.tri();
         return tmp;
     }
 
@@ -88,6 +94,14 @@ public class Gen<U extends Individu> implements Genealogie {
 
     public Liste<Individu> lesPetitsEnfants(Individu p1, Individu p2) {
         Liste<Individu> tmp = new ListeChaine<>();
+        for (Individu element : listeIndividu) {
+            if (!lesEnfants(element, null).estVide()) {
+                for (Individu individu : lesEnfants(element, null)) {
+                    tmp.insererFin(individu);
+                }
+            }
+        }
+
         return tmp;
     }
 
@@ -112,9 +126,4 @@ public class Gen<U extends Individu> implements Genealogie {
             moi.definirParent2(parent2.laReference());
         }
     }
-
-    public boolean testParentsConnus(Individu moi) {
-        return moi.leParent1() > -1 && moi.leParent2() > -1;
-    }
-
 }

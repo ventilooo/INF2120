@@ -2,11 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list id="190558e2-4f6f-4ff7-b6e5-855992a8a043" name="Default" comment="[ADD] new version TestGenealogie" />
-    <list default="true" id="e60da306-9122-4f64-924a-9371fc8f11d6" name="New changelist" comment="New changelist">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TP2/test/TestGenealogie.class" afterPath="$PROJECT_DIR$/out/production/TP2/test/TestGenealogie.class" />
+    <list default="true" id="e60da306-9122-4f64-924a-9371fc8f11d6" name="New changelist" comment="Initial Commit for part 3">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/tp2/Gen.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TP2/tp2/Gen.class" afterPath="$PROJECT_DIR$/out/production/TP2/tp2/Gen.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tda/Genealogie.java" afterPath="$PROJECT_DIR$/src/tda/Genealogie.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tda/Individu.java" afterPath="$PROJECT_DIR$/src/tda/Individu.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tda/Liste.java" afterPath="$PROJECT_DIR$/src/tda/Liste.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/TestGenealogie.java" afterPath="$PROJECT_DIR$/src/test/TestGenealogie.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/ListeChaine.java" afterPath="$PROJECT_DIR$/src/util/ListeChaine.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/Maillon.java" afterPath="$PROJECT_DIR$/src/util/Maillon.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/Personne.java" afterPath="$PROJECT_DIR$/src/util/Personne.java" />
     </list>
     <ignored path="TP2.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,95 +41,58 @@
     <favorites_list name="TP2" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-          <file leaf-file-name="Gen.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/tp2/Gen.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="32" column="13" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                    <element signature="method#lesEnfants#0;class#Gen#0" expanded="false" />
-                    <element signature="method#ajout#0;class#Gen#0" expanded="false" />
-                    <element signature="method#definirParent1#0;class#Gen#0" expanded="false" />
-                    <element signature="method#definirParent2#0;class#Gen#0" expanded="false" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/.gitignore">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-          <file leaf-file-name="TestGenealogie.java" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/test/TestGenealogie.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.59625214">
-                  <caret line="28" column="25" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                    <element signature="e#776#784#0" expanded="true" />
-                    <element signature="e#1765#1775#0" expanded="true" />
-                    <element signature="e#2017#2027#0" expanded="true" />
-                    <element signature="e#2177#2187#0" expanded="true" />
-                    <element signature="e#2404#2414#0" expanded="true" />
-                    <element signature="e#2619#2629#0" expanded="true" />
-                    <element signature="e#2956#2966#0" expanded="true" />
-                    <element signature="e#3103#3113#0" expanded="true" />
-                    <element signature="e#3302#3312#0" expanded="true" />
-                    <element signature="e#3365#3375#0" expanded="true" />
-                    <element signature="e#3658#3668#0" expanded="true" />
-                    <element signature="e#3721#3731#0" expanded="true" />
-                    <element signature="e#4013#4023#0" expanded="true" />
-                    <element signature="e#4076#4086#0" expanded="true" />
-                    <element signature="e#4422#4432#0" expanded="true" />
-                    <element signature="e#4485#4495#0" expanded="true" />
-                    <element signature="e#4928#4938#0" expanded="true" />
-                    <element signature="e#4975#4985#0" expanded="true" />
-                    <element signature="e#5353#5363#0" expanded="true" />
-                    <element signature="e#5400#5410#0" expanded="true" />
-                    <element signature="e#5791#5801#0" expanded="true" />
-                    <element signature="e#6074#6084#0" expanded="true" />
-                    <element signature="e#6272#6282#0" expanded="true" />
-                    <element signature="e#6335#6345#0" expanded="true" />
-                    <element signature="e#6738#6748#0" expanded="true" />
-                    <element signature="e#6801#6811#0" expanded="true" />
-                    <element signature="e#7057#7067#0" expanded="true" />
-                    <element signature="e#7741#7751#0" expanded="true" />
-                    <element signature="e#8004#8014#0" expanded="true" />
-                    <element signature="e#8067#8077#0" expanded="true" />
-                    <element signature="e#8644#8654#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Genealogie.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/tda/Genealogie.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="33" column="20" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf>
+      <file leaf-file-name="Genealogie.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/tda/Genealogie.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Gen.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/tp3/Gen.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Individu.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/tda/Individu.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="1.0860307">
+              <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TestGenealogie.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/TestGenealogie.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="27" column="24" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="VueGenealogie.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/tp3/VueGenealogie.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -149,14 +118,14 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/tda/Individu.java" />
         <option value="$PROJECT_DIR$/src/tda/Liste.java" />
         <option value="$PROJECT_DIR$/src/util/Maillon.java" />
         <option value="$PROJECT_DIR$/src/util/Personne.java" />
         <option value="$PROJECT_DIR$/src/util/ListeChaine.java" />
-        <option value="$PROJECT_DIR$/src/tda/Genealogie.java" />
         <option value="$PROJECT_DIR$/src/test/TestGenealogie.java" />
         <option value="$PROJECT_DIR$/src/tp2/Gen.java" />
+        <option value="$PROJECT_DIR$/src/tda/Genealogie.java" />
+        <option value="$PROJECT_DIR$/src/tda/Individu.java" />
       </list>
     </option>
   </component>
@@ -168,7 +137,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-11" />
     <option name="y" value="-11" />
-    <option name="width" value="2182" />
+    <option name="width" value="2164" />
     <option name="height" value="1402" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -196,8 +165,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -247,10 +217,45 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tp3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TP2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TP2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TP2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TP2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -824,6 +829,8 @@
       <workItem from="1458690540995" duration="827000" />
       <workItem from="1458785049674" duration="10000" />
       <workItem from="1458937266481" duration="8423000" />
+      <workItem from="1459791655634" duration="19000" />
+      <workItem from="1460137442777" duration="572000" />
     </task>
     <task id="LOCAL-00001" summary="[ADD] methodes de test des lien de parenté.">
       <created>1458942194040</created>
@@ -877,19 +884,19 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Test - 2016.03.25 at 19h 15m 08s.xml">
-      <configuration name="Test" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="Test - 2016.03.25 at 19h 26m 00s.xml">
-      <configuration name="Test" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="Test - 2016.03.25 at 19h 27m 59s.xml">
-      <configuration name="Test" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="Test - 2016.03.25 at 19h 37m 47s.xml">
       <configuration name="Test" configurationId="JUnit" />
     </history-entry>
     <history-entry file="Test - 2016.03.25 at 19h 45m 19s.xml">
+      <configuration name="Test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Test - 2016.04.04 at 13h 41m 04s.xml">
+      <configuration name="Test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Test - 2016.04.08 at 13h 47m 58s.xml">
+      <configuration name="Test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Test - 2016.04.08 at 13h 49m 19s.xml">
       <configuration name="Test" configurationId="JUnit" />
     </history-entry>
     <history-entry file="TestGenealogie_testDefinirParent2 - 2016.03.25 at 19h 25m 16s.xml">
@@ -909,11 +916,11 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17552000" />
+    <option name="totallyTimeSpent" value="18143000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-11" y="-11" width="2182" height="1402" extended-state="6" />
-    <editor active="false" />
+    <frame x="-11" y="-11" width="2164" height="1402" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -925,7 +932,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32700247" sideWeight="0.4980898" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24976122" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25192678" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32999045" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -953,6 +960,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="false" />
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
+    <confirmMoveToFailedCommit value="1" />
     <MESSAGE value="[ADD] methodes de test des lien de parenté." />
     <MESSAGE value="[ADD] mise de jour de la reference à chaque ajout d'individu" />
     <MESSAGE value="[ADD] Les enfants" />
@@ -960,10 +969,12 @@
     <MESSAGE value="[Fix] lesEnfants et definirParent1" />
     <MESSAGE value="[ADD] new version TestGenealogie" />
     <MESSAGE value="[ADD] lesParents" />
-    <option name="LAST_COMMIT_MESSAGE" value="[ADD] lesParents" />
+    <MESSAGE value="Initial Commit for part 3" />
+    <option name="LAST_COMMIT_MESSAGE" value="Initial Commit for part 3" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -976,17 +987,11 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/tp2/Gen.java">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="43" column="18" selection-start-line="43" selection-start-column="18" selection-end-line="43" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#lesEnfants#0;class#Gen#0" expanded="false" />
-            <element signature="method#ajout#0;class#Gen#0" expanded="false" />
-            <element signature="method#definirParent1#0;class#Gen#0" expanded="false" />
-            <element signature="method#definirParent2#0;class#Gen#0" expanded="false" />
-          </folding>
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -994,40 +999,23 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#776#784#0" expanded="true" />
-            <element signature="e#1765#1775#0" expanded="true" />
-            <element signature="e#2017#2027#0" expanded="true" />
-            <element signature="e#2177#2187#0" expanded="true" />
-            <element signature="e#2404#2414#0" expanded="true" />
-            <element signature="e#2619#2629#0" expanded="true" />
-            <element signature="e#2956#2966#0" expanded="true" />
-            <element signature="e#3103#3113#0" expanded="true" />
-            <element signature="e#3302#3312#0" expanded="true" />
-            <element signature="e#3365#3375#0" expanded="true" />
-            <element signature="e#3658#3668#0" expanded="true" />
-            <element signature="e#3721#3731#0" expanded="true" />
-            <element signature="e#4013#4023#0" expanded="true" />
-            <element signature="e#4076#4086#0" expanded="true" />
-            <element signature="e#4422#4432#0" expanded="true" />
-            <element signature="e#4485#4495#0" expanded="true" />
-            <element signature="e#4928#4938#0" expanded="true" />
-            <element signature="e#4975#4985#0" expanded="true" />
-            <element signature="e#5353#5363#0" expanded="true" />
-            <element signature="e#5400#5410#0" expanded="true" />
-            <element signature="e#5791#5801#0" expanded="true" />
-            <element signature="e#6074#6084#0" expanded="true" />
-            <element signature="e#6272#6282#0" expanded="true" />
-            <element signature="e#6335#6345#0" expanded="true" />
-            <element signature="e#6738#6748#0" expanded="true" />
-            <element signature="e#6801#6811#0" expanded="true" />
-            <element signature="e#7057#7067#0" expanded="true" />
-            <element signature="e#7741#7751#0" expanded="true" />
-            <element signature="e#8004#8014#0" expanded="true" />
-            <element signature="e#8067#8077#0" expanded="true" />
-            <element signature="e#8644#8654#0" expanded="true" />
-          </folding>
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tda/Genealogie.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="33" column="20" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/TestGenealogie.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1039,58 +1027,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tp2/Gen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="43" column="18" selection-start-line="43" selection-start-column="18" selection-end-line="43" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#lesEnfants#0;class#Gen#0" expanded="false" />
-            <element signature="method#ajout#0;class#Gen#0" expanded="false" />
-            <element signature="method#definirParent1#0;class#Gen#0" expanded="false" />
-            <element signature="method#definirParent2#0;class#Gen#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/TestGenealogie.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#776#784#0" expanded="true" />
-            <element signature="e#1765#1775#0" expanded="true" />
-            <element signature="e#2017#2027#0" expanded="true" />
-            <element signature="e#2177#2187#0" expanded="true" />
-            <element signature="e#2404#2414#0" expanded="true" />
-            <element signature="e#2619#2629#0" expanded="true" />
-            <element signature="e#2956#2966#0" expanded="true" />
-            <element signature="e#3103#3113#0" expanded="true" />
-            <element signature="e#3302#3312#0" expanded="true" />
-            <element signature="e#3365#3375#0" expanded="true" />
-            <element signature="e#3658#3668#0" expanded="true" />
-            <element signature="e#3721#3731#0" expanded="true" />
-            <element signature="e#4013#4023#0" expanded="true" />
-            <element signature="e#4076#4086#0" expanded="true" />
-            <element signature="e#4422#4432#0" expanded="true" />
-            <element signature="e#4485#4495#0" expanded="true" />
-            <element signature="e#4928#4938#0" expanded="true" />
-            <element signature="e#4975#4985#0" expanded="true" />
-            <element signature="e#5353#5363#0" expanded="true" />
-            <element signature="e#5400#5410#0" expanded="true" />
-            <element signature="e#5791#5801#0" expanded="true" />
-            <element signature="e#6074#6084#0" expanded="true" />
-            <element signature="e#6272#6282#0" expanded="true" />
-            <element signature="e#6335#6345#0" expanded="true" />
-            <element signature="e#6738#6748#0" expanded="true" />
-            <element signature="e#6801#6811#0" expanded="true" />
-            <element signature="e#7057#7067#0" expanded="true" />
-            <element signature="e#7741#7751#0" expanded="true" />
-            <element signature="e#8004#8014#0" expanded="true" />
-            <element signature="e#8067#8077#0" expanded="true" />
-            <element signature="e#8644#8654#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1102,58 +1043,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tp2/Gen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="19" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#lesEnfants#0;class#Gen#0" expanded="false" />
-            <element signature="method#ajout#0;class#Gen#0" expanded="false" />
-            <element signature="method#definirParent1#0;class#Gen#0" expanded="false" />
-            <element signature="method#definirParent2#0;class#Gen#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/TestGenealogie.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#776#784#0" expanded="true" />
-            <element signature="e#1765#1775#0" expanded="true" />
-            <element signature="e#2017#2027#0" expanded="true" />
-            <element signature="e#2177#2187#0" expanded="true" />
-            <element signature="e#2404#2414#0" expanded="true" />
-            <element signature="e#2619#2629#0" expanded="true" />
-            <element signature="e#2956#2966#0" expanded="true" />
-            <element signature="e#3103#3113#0" expanded="true" />
-            <element signature="e#3302#3312#0" expanded="true" />
-            <element signature="e#3365#3375#0" expanded="true" />
-            <element signature="e#3658#3668#0" expanded="true" />
-            <element signature="e#3721#3731#0" expanded="true" />
-            <element signature="e#4013#4023#0" expanded="true" />
-            <element signature="e#4076#4086#0" expanded="true" />
-            <element signature="e#4422#4432#0" expanded="true" />
-            <element signature="e#4485#4495#0" expanded="true" />
-            <element signature="e#4928#4938#0" expanded="true" />
-            <element signature="e#4975#4985#0" expanded="true" />
-            <element signature="e#5353#5363#0" expanded="true" />
-            <element signature="e#5400#5410#0" expanded="true" />
-            <element signature="e#5791#5801#0" expanded="true" />
-            <element signature="e#6074#6084#0" expanded="true" />
-            <element signature="e#6272#6282#0" expanded="true" />
-            <element signature="e#6335#6345#0" expanded="true" />
-            <element signature="e#6738#6748#0" expanded="true" />
-            <element signature="e#6801#6811#0" expanded="true" />
-            <element signature="e#7057#7067#0" expanded="true" />
-            <element signature="e#7741#7751#0" expanded="true" />
-            <element signature="e#8004#8014#0" expanded="true" />
-            <element signature="e#8067#8077#0" expanded="true" />
-            <element signature="e#8644#8654#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1165,58 +1059,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tp2/Gen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="19" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#lesEnfants#0;class#Gen#0" expanded="false" />
-            <element signature="method#ajout#0;class#Gen#0" expanded="false" />
-            <element signature="method#definirParent1#0;class#Gen#0" expanded="false" />
-            <element signature="method#definirParent2#0;class#Gen#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/TestGenealogie.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#776#784#0" expanded="true" />
-            <element signature="e#1765#1775#0" expanded="true" />
-            <element signature="e#2017#2027#0" expanded="true" />
-            <element signature="e#2177#2187#0" expanded="true" />
-            <element signature="e#2404#2414#0" expanded="true" />
-            <element signature="e#2619#2629#0" expanded="true" />
-            <element signature="e#2956#2966#0" expanded="true" />
-            <element signature="e#3103#3113#0" expanded="true" />
-            <element signature="e#3302#3312#0" expanded="true" />
-            <element signature="e#3365#3375#0" expanded="true" />
-            <element signature="e#3658#3668#0" expanded="true" />
-            <element signature="e#3721#3731#0" expanded="true" />
-            <element signature="e#4013#4023#0" expanded="true" />
-            <element signature="e#4076#4086#0" expanded="true" />
-            <element signature="e#4422#4432#0" expanded="true" />
-            <element signature="e#4485#4495#0" expanded="true" />
-            <element signature="e#4928#4938#0" expanded="true" />
-            <element signature="e#4975#4985#0" expanded="true" />
-            <element signature="e#5353#5363#0" expanded="true" />
-            <element signature="e#5400#5410#0" expanded="true" />
-            <element signature="e#5791#5801#0" expanded="true" />
-            <element signature="e#6074#6084#0" expanded="true" />
-            <element signature="e#6272#6282#0" expanded="true" />
-            <element signature="e#6335#6345#0" expanded="true" />
-            <element signature="e#6738#6748#0" expanded="true" />
-            <element signature="e#6801#6811#0" expanded="true" />
-            <element signature="e#7057#7067#0" expanded="true" />
-            <element signature="e#7741#7751#0" expanded="true" />
-            <element signature="e#8004#8014#0" expanded="true" />
-            <element signature="e#8067#8077#0" expanded="true" />
-            <element signature="e#8644#8654#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1232,47 +1079,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#776#784#0" expanded="true" />
-            <element signature="e#1765#1775#0" expanded="true" />
-            <element signature="e#2017#2027#0" expanded="true" />
-            <element signature="e#2177#2187#0" expanded="true" />
-            <element signature="e#2404#2414#0" expanded="true" />
-            <element signature="e#2619#2629#0" expanded="true" />
-            <element signature="e#2956#2966#0" expanded="true" />
-            <element signature="e#3103#3113#0" expanded="true" />
-            <element signature="e#3302#3312#0" expanded="true" />
-            <element signature="e#3365#3375#0" expanded="true" />
-            <element signature="e#3658#3668#0" expanded="true" />
-            <element signature="e#3721#3731#0" expanded="true" />
-            <element signature="e#4013#4023#0" expanded="true" />
-            <element signature="e#4076#4086#0" expanded="true" />
-            <element signature="e#4422#4432#0" expanded="true" />
-            <element signature="e#4485#4495#0" expanded="true" />
-            <element signature="e#4928#4938#0" expanded="true" />
-            <element signature="e#4975#4985#0" expanded="true" />
-            <element signature="e#5353#5363#0" expanded="true" />
-            <element signature="e#5400#5410#0" expanded="true" />
-            <element signature="e#5791#5801#0" expanded="true" />
-            <element signature="e#6074#6084#0" expanded="true" />
-            <element signature="e#6272#6282#0" expanded="true" />
-            <element signature="e#6335#6345#0" expanded="true" />
-            <element signature="e#6738#6748#0" expanded="true" />
-            <element signature="e#6801#6811#0" expanded="true" />
-            <element signature="e#7057#7067#0" expanded="true" />
-            <element signature="e#7741#7751#0" expanded="true" />
-            <element signature="e#8004#8014#0" expanded="true" />
-            <element signature="e#8067#8077#0" expanded="true" />
-            <element signature="e#8644#8654#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tda/Individu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.95697075">
-          <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1309,7 +1116,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.35384616">
           <caret line="194" column="25" selection-start-line="194" selection-start-column="25" selection-end-line="194" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1317,7 +1123,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.75">
           <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1325,70 +1130,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.8076923">
           <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tda/Genealogie.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="33" column="20" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/TestGenealogie.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.59625214">
-          <caret line="28" column="25" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#776#784#0" expanded="true" />
-            <element signature="e#1765#1775#0" expanded="true" />
-            <element signature="e#2017#2027#0" expanded="true" />
-            <element signature="e#2177#2187#0" expanded="true" />
-            <element signature="e#2404#2414#0" expanded="true" />
-            <element signature="e#2619#2629#0" expanded="true" />
-            <element signature="e#2956#2966#0" expanded="true" />
-            <element signature="e#3103#3113#0" expanded="true" />
-            <element signature="e#3302#3312#0" expanded="true" />
-            <element signature="e#3365#3375#0" expanded="true" />
-            <element signature="e#3658#3668#0" expanded="true" />
-            <element signature="e#3721#3731#0" expanded="true" />
-            <element signature="e#4013#4023#0" expanded="true" />
-            <element signature="e#4076#4086#0" expanded="true" />
-            <element signature="e#4422#4432#0" expanded="true" />
-            <element signature="e#4485#4495#0" expanded="true" />
-            <element signature="e#4928#4938#0" expanded="true" />
-            <element signature="e#4975#4985#0" expanded="true" />
-            <element signature="e#5353#5363#0" expanded="true" />
-            <element signature="e#5400#5410#0" expanded="true" />
-            <element signature="e#5791#5801#0" expanded="true" />
-            <element signature="e#6074#6084#0" expanded="true" />
-            <element signature="e#6272#6282#0" expanded="true" />
-            <element signature="e#6335#6345#0" expanded="true" />
-            <element signature="e#6738#6748#0" expanded="true" />
-            <element signature="e#6801#6811#0" expanded="true" />
-            <element signature="e#7057#7067#0" expanded="true" />
-            <element signature="e#7741#7751#0" expanded="true" />
-            <element signature="e#8004#8014#0" expanded="true" />
-            <element signature="e#8067#8077#0" expanded="true" />
-            <element signature="e#8644#8654#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tp2/Gen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="32" column="13" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#lesEnfants#0;class#Gen#0" expanded="false" />
-            <element signature="method#ajout#0;class#Gen#0" expanded="false" />
-            <element signature="method#definirParent1#0;class#Gen#0" expanded="false" />
-            <element signature="method#definirParent2#0;class#Gen#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1396,6 +1137,46 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tda/Genealogie.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tp3/VueGenealogie.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/TestGenealogie.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="27" column="24" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tp3/Gen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tda/Individu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.0860307">
+          <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
           <folding />
         </state>
       </provider>

@@ -1,10 +1,16 @@
 package tp3;
 
+import org.junit.runner.JUnitCore;
+import org.junit.runner.Result;
+import org.junit.runner.notification.Failure;
 import tda.Individu;
 import tda.Liste;
+import test.TestGenealogie;
 import util.Personne;
 
 import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,16 +18,20 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.StringTokenizer;
+import java.util.TimeZone;
 
 /**
  * Created by SZAI29079604 on 04/04/2016.
  */
 public class VueGenealogie {
+    protected Gen arbre;
     private JFrame frame;
-    private Gen arbre;
     private DefaultListModel model;
     private JList genList;
+    private Individu active;
+    private JTextArea zoneTexte;
 
     public VueGenealogie() {
         initialize();
@@ -45,17 +55,18 @@ public class VueGenealogie {
         frame = new JFrame();
         arbre = new Gen();
         model = new DefaultListModel();
+        test();
         //
         JPanel panel = new JPanel(new FlowLayout());
         JPanel jListPanel = new JPanel(new FlowLayout());
-        JPanel zoneTextePanel = new JPanel(new GridLayout(3, 2, 0, 5));
+        JPanel zoneDeTexte = new JPanel(new GridLayout(3, 2, 0, 5));
         //
         setJlist(jListPanel);
-        setZoneTexte(zoneTextePanel);
+        setZoneTexte(zoneDeTexte);
         setCheckBox(panel);
         //
         panel.add(jListPanel);
-        panel.add(zoneTextePanel);
+        panel.add(zoneDeTexte);
         createToolBar(frame);
         //
         frame.add(panel);
@@ -83,6 +94,10 @@ public class VueGenealogie {
         displayIndividu.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                model.clear();
+                for (Object personne : arbre.lesIndividus()) {
+                    model.addElement(personne);
+                }
                 genList.setVisible(true);
             }
         });
@@ -102,9 +117,49 @@ public class VueGenealogie {
         //Menu Explorer
         JMenu explorationMenu = new JMenu("Exploration");
         JMenuItem kidsMenuItem = new JMenuItem("Les enfants");
+        kidsMenuItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                model.clear();
+                for (Individu personne : getArrayOfIndividu(arbre.lesEnfants(null, active))) {
+                    model.addElement(personne);
+                    genList.setVisible(true);
+                }
+            }
+        });
         JMenuItem parentsMenuItem = new JMenuItem("Les parents");
+        parentsMenuItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                model.clear();
+                for (Individu personne : getArrayOfIndividu(arbre.lesParents(active))) {
+                    model.addElement(personne);
+                    genList.setVisible(true);
+                }
+            }
+        });
         JMenuItem brothersMenuItem = new JMenuItem("Les frères");
+        brothersMenuItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                model.clear();
+                for (Individu personne : getArrayOfIndividu(arbre.laFratrie(active))) {
+                    model.addElement(personne);
+                    genList.setVisible(true);
+                }
+            }
+        });
         JMenuItem grandKidsMenuItem = new JMenuItem("Les petits enfants");
+        grandKidsMenuItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                model.clear();
+                for (Individu personne : getArrayOfIndividu(arbre.lesPetitsEnfants(null, active))) {
+                    model.addElement(personne);
+                    genList.setVisible(true);
+                }
+            }
+        });
 
         explorationMenu.add(kidsMenuItem);
         explorationMenu.add(parentsMenuItem);
@@ -115,7 +170,7 @@ public class VueGenealogie {
         //Menu Test
         JMenu menuTester = new JMenu("Tester");
         JMenuItem itemVerifier = new JMenuItem("Vérifier");
-       /* itemVerifier.addActionListener(new ActionListener() {
+        itemVerifier.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 zoneTexte.setText("");
                 if (arbre != null) {
@@ -134,7 +189,6 @@ public class VueGenealogie {
                 }
             }
         });
-        */ //TODO make that part of code usable !
         menuTester.add(itemVerifier);
         menuBar.add(menuTester);
 
@@ -142,10 +196,10 @@ public class VueGenealogie {
     }
 
     private void setZoneTexte(JPanel panel) {
-        JTextArea zoneTexte = new JTextArea("Test");
+        zoneTexte = new JTextArea();
         zoneTexte.setBackground(Color.orange);
-        frame.setBounds(100, 100, 600, 500);
-        zoneTexte.setPreferredSize(new Dimension(300, 100));
+        frame.setBounds(300, 300, 1000, 1000);
+        zoneTexte.setPreferredSize(new Dimension(500, 500));
         panel.add(zoneTexte);
     }
 
@@ -182,6 +236,12 @@ public class VueGenealogie {
     private void setJlist(JPanel panel) {
         genList = new JList(model);
         genList.setVisible(false);
+        genList.addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+                active = (Personne) genList.getSelectedValue();
+            }
+        });
         panel.add(genList);
     }
 
@@ -210,7 +270,6 @@ public class VueGenealogie {
                     DateFormat dfm = new SimpleDateFormat("dd-MM-YYYY");
                     Personne moi = new Personne(nameField.getText(), getPrenoms(prenomsField.getText()), dfm.parse(dateField.getText()));
                     arbre.ajout(moi);
-                    model.addElement(moi);
                     jDialog.dispose();
                 } catch (ParseException E) {
                     E.printStackTrace();
@@ -324,12 +383,8 @@ public class VueGenealogie {
         return arr;
     }
 
-    private Personne getJlistSelectedIndividu() {
-        return (Personne) genList.getSelectedValue();
-    }
-
-    /*private  void displayContentInZoneDeTexte(JPanel panel){
-        buttonNom.addActionListener(new ActionListener() {
+    private void displayContentInZoneDeTexte(JPanel panel) {
+       /* buttonNom.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (buttonNom.isSelected()){
@@ -352,7 +407,36 @@ public class VueGenealogie {
                     setDateInZoneDeText(getJlistSelectedIndividu(),panel);
                 }
             }
-        });
-    }*/
+        });*/
+    }
+
+    private void test() {
+        DateFormat dfm = new SimpleDateFormat("Y");
+        dfm.setTimeZone(TimeZone.getTimeZone("Canada/Montreal"));
+        Personne[] testTab = new Personne[15];
+        try {
+            testTab[0] = new Personne("Tremblay", new ArrayList<String>(Arrays.asList("Guy")), dfm.parse("1990"));
+            testTab[1] = new Personne("Mili", new ArrayList<String>(Arrays.asList("Hafedh")), dfm.parse("1994"));
+            testTab[2] = new Personne("Gagnon", new ArrayList<String>(Arrays.asList("Étienne")), dfm.parse("1991"));
+            testTab[3] = new Personne("Laforest", new ArrayList<String>(Arrays.asList("Louise")), dfm.parse("1992"));
+            testTab[4] = new Personne("Cherkaoui", new ArrayList<String>(Arrays.asList("Omar")), dfm.parse("1967"));
+            testTab[5] = new Personne("Kerhervé", new ArrayList<String>(Arrays.asList("Brigitte")), dfm.parse("1965"));
+            testTab[6] = new Personne("Moha", new ArrayList<String>(Arrays.asList("Naouel")), dfm.parse("1964"));
+            testTab[7] = new Personne("Boukadoum", new ArrayList<String>(Arrays.asList("Mounir")), dfm.parse("1963"));
+            testTab[8] = new Personne("Villemaire", new ArrayList<String>(Arrays.asList("Roger")), dfm.parse("1945"));
+            testTab[9] = new Personne("Dupuis", new ArrayList<String>(Arrays.asList("Robert")), dfm.parse("1940"));
+            testTab[10] = new Personne("Gabrini", new ArrayList<String>(Arrays.asList("Philippe")), dfm.parse("1941"));
+            testTab[11] = new Personne("Bergeron", new ArrayList<String>(Arrays.asList("Anne")), dfm.parse("1923"));
+            testTab[12] = new Personne("Davidson", new ArrayList<String>(Arrays.asList("Paul")), dfm.parse("1948"));
+            testTab[13] = new Personne("Makarenkov", new ArrayList<String>(Arrays.asList("Vladimir")), dfm.parse("1962"));
+            testTab[14] = new Personne("Bouisset", new ArrayList<String>(Arrays.asList("Marc")), dfm.parse("1922"));
+        } catch (ParseException ex) {
+            ex.printStackTrace();
+        }
+        for (int i = 0; i < testTab.length; i++) {
+            arbre.ajout(testTab[i]);
+        }
+    }
+
 
 }

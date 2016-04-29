@@ -1,5 +1,7 @@
 package tp3;
 
+import tda.Individu;
+import tda.Liste;
 import util.Personne;
 
 import javax.swing.*;
@@ -43,12 +45,19 @@ public class VueGenealogie {
         frame = new JFrame();
         arbre = new Gen();
         model = new DefaultListModel();
+        //
         JPanel panel = new JPanel(new FlowLayout());
-        frame.setLayout(new FlowLayout());
-        setJlist(panel);
-        setZoneTexte(panel);
+        JPanel jListPanel = new JPanel(new FlowLayout());
+        JPanel zoneTextePanel = new JPanel(new GridLayout(3, 2, 0, 5));
+        //
+        setJlist(jListPanel);
+        setZoneTexte(zoneTextePanel);
         setCheckBox(panel);
+        //
+        panel.add(jListPanel);
+        panel.add(zoneTextePanel);
         createToolBar(frame);
+        //
         frame.add(panel);
     }
 
@@ -64,6 +73,12 @@ public class VueGenealogie {
             }
         });
         JMenuItem addParents = new JMenuItem("Ajouetr un parent");
+        addParents.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                addParentDialog();
+            }
+        });
         JMenuItem displayIndividu = new JMenuItem("Afficher les individus");
         displayIndividu.addActionListener(new ActionListener() {
             @Override
@@ -134,6 +149,27 @@ public class VueGenealogie {
         panel.add(zoneTexte);
     }
 
+    private void setNomInZoneDeText(Personne individu, JPanel panel) {
+        JLabel nomLabel = new JLabel("NOM:");
+        JTextField nomField = new JTextField(individu.leNom());
+        panel.add(nomLabel);
+        panel.add(nomField);
+    }
+
+    private void setDateInZoneDeText(Personne individu, JPanel panel) {
+        JLabel dateLabel = new JLabel("NOM:");
+        JTextField dateField = new JTextField(individu.laDate().toString());
+        panel.add(dateLabel);
+        panel.add(dateField);
+    }
+
+    private void setPrenomInZoneDeText(Personne individu, JPanel panel) {
+        JLabel prenomLabel = new JLabel("PRÉNON:");
+        JTextField prenomField = new JTextField(individu.lesPrenoms().toString());
+        panel.add(prenomLabel);
+        panel.add(prenomField);
+    }
+
     private void setCheckBox(JPanel panel) {
         JCheckBox buttonNom = new JCheckBox("Nom");
         JCheckBox buttonPrenom = new JCheckBox("Prénom");
@@ -154,7 +190,7 @@ public class VueGenealogie {
         jDialog.setTitle("Ajouter Individu");
         jDialog.setSize(300, 200);
         jDialog.setVisible(true);
-        jDialog.setLayout(new FlowLayout());
+        jDialog.setLayout(new FlowLayout(FlowLayout.TRAILING));
         addIndividuDialogComponents(jDialog);
 
     }
@@ -207,5 +243,116 @@ public class VueGenealogie {
         return stringList;
     }
 
+    private void addParentDialog() {
+        JDialog jDialog = new JDialog();
+        jDialog.setTitle("Choix du parent");
+        jDialog.setSize(300, 200);
+        jDialog.setVisible(true);
+        jDialog.setLayout(new FlowLayout(FlowLayout.CENTER));
+        choixDuParent(jDialog);
+    }
+
+    private void leParentDialog(JDialog jDialog) {
+        jDialog.setTitle("Le parent");
+        JLabel instruction = new JLabel("Choix d'un parent");
+        JComboBox parentsBox = new JComboBox(getArrayPersone());
+        JButton ouiButton = new JButton("OUI");
+        JButton annulerButton = new JButton("Annuler");
+        jDialog.add(instruction);
+        jDialog.add(parentsBox);
+        jDialog.add(ouiButton);
+        jDialog.add(annulerButton);
+        ouiButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Individu activeIndividu = (Individu) parentsBox.getSelectedItem();
+            }
+        });
+        annulerButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jDialog.dispose();
+            }
+        });
+
+    }
+
+    private void choixDuParent(JDialog jDialog) {
+        JLabel instruction = new JLabel("Est-ce le premier parent ?");
+        JButton ouiButton = new JButton("OUI");
+        JButton annulerButton = new JButton("Annuler");
+        JButton nonButton = new JButton("NON");
+        jDialog.add(instruction);
+        jDialog.add(ouiButton);
+        jDialog.add(nonButton);
+        jDialog.add(annulerButton);
+        ouiButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jDialog.removeAll();
+                leParentDialog(jDialog);
+            }
+        });
+        nonButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jDialog.removeAll();
+                leParentDialog(jDialog);
+            }
+        });
+        annulerButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jDialog.dispose();
+            }
+        });
+    }
+
+    private Individu[] getArrayPersone() {
+        Individu[] arr = new Personne[arbre.lesIndividus().longueur()];
+        for (int i = 0; i < arbre.lesIndividus().longueur(); i++) {
+            arr[i] = arbre.lIndividu(i);
+        }
+        return arr;
+    }
+
+    private Individu[] getArrayOfIndividu(Liste liste) {
+        Individu[] arr = new Personne[liste.longueur()];
+        for (int i = 0; i < liste.longueur(); i++) {
+            arr[i] = arbre.lIndividu(i);
+        }
+        return arr;
+    }
+
+    private Personne getJlistSelectedIndividu() {
+        return (Personne) genList.getSelectedValue();
+    }
+
+    /*private  void displayContentInZoneDeTexte(JPanel panel){
+        buttonNom.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (buttonNom.isSelected()){
+                    setNomInZoneDeText(getJlistSelectedIndividu(),panel);
+                }
+            }
+        });
+        buttonPrenom.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (buttonPrenom.isSelected()){
+                    setPrenomInZoneDeText(getJlistSelectedIndividu(),panel);
+                }
+            }
+        });
+        buttonDate.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (buttonDate.isSelected()){
+                    setDateInZoneDeText(getJlistSelectedIndividu(),panel);
+                }
+            }
+        });
+    }*/
 
 }

@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package util;
 
@@ -10,9 +10,8 @@ package util;
 public class Maillon<T> {
 	private T valeur;
 	private Maillon<T> suivant;
-
 	/**
-	 * @param valeur,  la valeur du maillon
+	 * @param valeur, la valeur du maillon
 	 * @param suivant, le maillon suivant
 	 */
 	public Maillon(T valeur, Maillon<T> suivant) {
@@ -20,7 +19,6 @@ public class Maillon<T> {
 		this.valeur = valeur;
 		this.suivant = suivant;
 	}
-
 	/**
 	 * @param valeur, la valeur du maillon
 	 */
@@ -34,21 +32,18 @@ public class Maillon<T> {
 	public void definirValeur(T valeur) {
 		this.valeur = valeur;
 	}
-
 	/**
 	 * @return, retourne la valeur du maillon
 	 */
 	public T laValeur() {
 		return valeur;
 	}
-
 	/**
 	 * @return, retourne le maillon suivant
 	 */
 	public Maillon<T> leSuivant() {
 		return suivant;
 	}
-
 	/**
 	 * @param suivant, définit le maillon suivant
 	 */

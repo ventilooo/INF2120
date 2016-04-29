@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package tda;
 
@@ -15,7 +15,7 @@ public interface Liste<T> extends Iterable<T> {
      * @return true si la liste est vide, false autrement
      */
     boolean estVide();
-    
+
     /**
      * Détermine le nombre d'éléments dans la liste.
      * @return le nombre d'éléments dans la liste

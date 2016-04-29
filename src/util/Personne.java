@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package util;
 
@@ -63,7 +63,7 @@ public class Personne implements Individu {
 		if (!(obj instanceof Personne))
 			return false;
 		Personne other = (Personne) obj;
-		return nom == other.nom;
+		return nom.equals(other.nom);
 	}
 
 	/* (non-Javadoc)

@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package tda;
 
@@ -12,12 +12,12 @@ import java.util.Date;
 public interface Individu extends Comparable<Individu> {
 
 	/**
-	 * @return , retourne la date de naissance de l'individu
+	 * @return, retourne la date de naissance de l'individu
 	 */
 	Date laDate();
 
 	/**
-	 * @return , retourne un entier référençant de manière unique l'individu,
+	 * @return, retourne un entier référençant de manière unique l'individu,
 	 * peut être -1 si la référence n'est pas connue.
 	 */
 	int laReference();
@@ -28,13 +28,13 @@ public interface Individu extends Comparable<Individu> {
 	void definirLaReference(int ref);
 
 	/**
-	 * @return , retourne le premier parent de l'individu
+	 * @return, retourne le premier parent de l'individu
 	 * -1 si le premier parent n'est pas connu
 	 */
 	Individu leParent1();
 
 	/**
-	 * @return , retourne le second parent de l'individu
+	 * @return, retourne le second parent de l'individu
 	 * -1 si le second parent n'est pas connu
 	 */
 	Individu leParent2();
@@ -48,6 +48,6 @@ public interface Individu extends Comparable<Individu> {
 	 * @param p, le second parent
 	 */
 	void definirParent2(Individu p);
-	
+
 
 }

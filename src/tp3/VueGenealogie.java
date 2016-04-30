@@ -100,52 +100,56 @@ public class VueGenealogie {
             model.clear();
             if (genList.getSelectedValue() != null) {
                 active = (Personne) genList.getSelectedValue();
+                for (Individu personne : getArrayOfIndividu(arbre.lesEnfants(null, active))) {
+                    model.addElement(personne);
+                    genList.setVisible(true);
+                }
             } else {
                 JOptionPane.showMessageDialog(new JDialog(), "aucun individu sélectionner");
             }
-            for (Individu personne : getArrayOfIndividu(arbre.lesEnfants(null, active))) {
-                model.addElement(personne);
-                genList.setVisible(true);
-            }
+
         });
         JMenuItem parentsMenuItem = new JMenuItem("Les parents");
         parentsMenuItem.addActionListener(e -> {
             model.clear();
             if (genList.getSelectedValue() != null) {
                 active = (Personne) genList.getSelectedValue();
+                for (Individu personne : getArrayOfIndividu(arbre.lesParents(active))) {
+                    model.addElement(personne);
+                    genList.setVisible(true);
+                }
             } else {
                 JOptionPane.showMessageDialog(new JDialog(), "aucun individu sélectionner");
             }
-            for (Individu personne : getArrayOfIndividu(arbre.lesParents(active))) {
-                model.addElement(personne);
-                genList.setVisible(true);
-            }
+
         });
         JMenuItem brothersMenuItem = new JMenuItem("Les frères");
         brothersMenuItem.addActionListener(e -> {
             model.clear();
             if (genList.getSelectedValue() != null) {
                 active = (Personne) genList.getSelectedValue();
+                for (Individu personne : getArrayOfIndividu(arbre.laFratrie(active))) {
+                    model.addElement(personne);
+                    genList.setVisible(true);
+                }
             } else {
                 JOptionPane.showMessageDialog(new JDialog(), "aucun individu sélectionner");
             }
-            for (Individu personne : getArrayOfIndividu(arbre.laFratrie(active))) {
-                model.addElement(personne);
-                genList.setVisible(true);
-            }
+
         });
         JMenuItem grandKidsMenuItem = new JMenuItem("Les petits enfants");
         grandKidsMenuItem.addActionListener(e -> {
             model.clear();
             if (genList.getSelectedValue() != null) {
                 active = (Personne) genList.getSelectedValue();
+                for (Individu personne : getArrayOfIndividu(arbre.lesPetitsEnfants(null, active))) {
+                    model.addElement(personne);
+                    genList.setVisible(true);
+                }
             } else {
                 JOptionPane.showMessageDialog(new JDialog(), "aucun individu sélectionner");
             }
-            for (Individu personne : getArrayOfIndividu(arbre.lesPetitsEnfants(null, active))) {
-                model.addElement(personne);
-                genList.setVisible(true);
-            }
+
         });
 
         explorationMenu.add(kidsMenuItem);
@@ -268,6 +272,7 @@ public class VueGenealogie {
                 DateFormat dfm = new SimpleDateFormat("dd-MM-YYYY");
                 Personne moi = new Personne(nameField.getText(), getPrenoms(prenomsField.getText()), dfm.parse(dateField.getText()));
                 arbre.ajout(moi);
+                JOptionPane.showMessageDialog(new JDialog(), moi + "à été ajouter");
                 jDialog.dispose();
             } catch (ParseException E) {
                 JOptionPane.showMessageDialog(new JDialog(), "Date invalide");
@@ -322,15 +327,17 @@ public class VueGenealogie {
             Individu activeIndividu = (Individu) parentsBox.getSelectedItem();
             if (genList.getSelectedValue() != null) {
                 active = (Personne) genList.getSelectedValue();
+                if (parent1) {
+                    arbre.definirParent1(active, activeIndividu);
+                    JOptionPane.showMessageDialog(new JDialog(), active + " est devenu le parent1 de " + activeIndividu);
+                } else {
+                    arbre.definirParent2(active, activeIndividu);
+                    JOptionPane.showMessageDialog(new JDialog(), active + " est devenu le parent2 de " + activeIndividu);
+                }
             } else {
                 JOptionPane.showMessageDialog(new JDialog(), "aucun individu sélectionner");
             }
-            if (parent1) {
-                arbre.definirParent1(active, activeIndividu);
-            } else {
-                arbre.definirParent2(active, activeIndividu);
-            }
-            System.out.println(active + " est parent de " + activeIndividu); //TODO REMOVE
+
             jDialog.dispose();
 
         });

@@ -304,13 +304,17 @@ public class VueGenealogie {
         jDialog.add(annulerButton);
         ouiButton.addActionListener(e -> {
             Individu activeIndividu = (Individu) parentsBox.getSelectedItem();
-            active = (Personne) genList.getSelectedValue();
+            if (genList.getSelectedValue() != null) {
+                active = (Personne) genList.getSelectedValue();
+            }
             if (parent1) {
                 arbre.definirParent1(active, activeIndividu);
             } else {
                 arbre.definirParent2(active, activeIndividu);
             }
+            System.out.println(active + " est parent de " + activeIndividu);
             jDialog.dispose();
+
         });
         annulerButton.addActionListener(e -> jDialog.dispose());
 
@@ -353,6 +357,7 @@ public class VueGenealogie {
         return arr;
     }
 
+    // Remplis l'arbre avec les personnes pour les test
     @SuppressWarnings("unchecked")
     private void test() {
         DateFormat dfm = new SimpleDateFormat("Y");
@@ -381,5 +386,8 @@ public class VueGenealogie {
             arbre.ajout(aTestTab);
         }
     }
+
+    //Je n'arrive pas à faire fonctionner les TEST que vous nous avez fournis cependant quand j'évalue au débug, mes list sont bien former.
+    //Si possible J'aimerais prendre RDV avec vous pour discuter de la correction de se TP.
 
 }

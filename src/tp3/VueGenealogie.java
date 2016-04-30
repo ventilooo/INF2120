@@ -113,6 +113,10 @@ public class VueGenealogie {
             if (genList.getSelectedValue() != null) {
                 active = (Personne) genList.getSelectedValue();
                 model.clear();
+                System.out.println(active);
+                System.out.println(active.leParent1());
+                System.out.println(active.leParent2());
+                System.out.println(arbre.lesParents(active));
                 for (Individu personne : getArrayOfIndividu(arbre.lesParents(active))) {
                     model.addElement(personne);
                     genList.setVisible(true);
@@ -271,7 +275,7 @@ public class VueGenealogie {
                 DateFormat dfm = new SimpleDateFormat("dd-MM-YYYY");
                 Personne moi = new Personne(nameField.getText(), getPrenoms(prenomsField.getText()), dfm.parse(dateField.getText()));
                 arbre.ajout(moi);
-                JOptionPane.showMessageDialog(new JDialog(), moi + "à été ajouter");
+                JOptionPane.showMessageDialog(new JDialog(), moi + " à été ajouter");
                 jDialog.dispose();
             } catch (ParseException E) {
                 JOptionPane.showMessageDialog(new JDialog(), "Date invalide");
@@ -327,11 +331,11 @@ public class VueGenealogie {
             if (genList.getSelectedValue() != null) {
                 active = (Personne) genList.getSelectedValue();
                 if (parent1) {
-                    arbre.definirParent1(activeIndividu, active);
-                    JOptionPane.showMessageDialog(new JDialog(), activeIndividu + " est devenu le parent1 de " + active);
+                    arbre.definirParent1(active, activeIndividu);
+                    JOptionPane.showMessageDialog(new JDialog(), activeIndividu + " est maintenant le parent1 de " + active);
                 } else {
-                    arbre.definirParent2(activeIndividu, active);
-                    JOptionPane.showMessageDialog(new JDialog(), activeIndividu + " est devenu le parent2 de " + active);
+                    arbre.definirParent2(active, activeIndividu);
+                    JOptionPane.showMessageDialog(new JDialog(), activeIndividu + " est maintenant le parent2 de " + active);
                 }
             } else {
                 JOptionPane.showMessageDialog(new JDialog(), "aucun individu sélectionner");

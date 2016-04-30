@@ -9,8 +9,6 @@ import test.TestGenealogie;
 import util.Personne;
 
 import javax.swing.*;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -30,7 +28,7 @@ public class VueGenealogie {
     private JFrame frame;
     private DefaultListModel model;
     private JList genList;
-    private Individu active;
+    private Personne active;
     private JTextArea zoneTexte;
 
     public VueGenealogie() {
@@ -199,7 +197,7 @@ public class VueGenealogie {
         zoneTexte = new JTextArea();
         zoneTexte.setBackground(Color.orange);
         frame.setBounds(300, 300, 1000, 1000);
-        zoneTexte.setPreferredSize(new Dimension(500, 500));
+        zoneTexte.setPreferredSize(new Dimension(500, 350));
         panel.add(zoneTexte);
     }
 
@@ -218,7 +216,7 @@ public class VueGenealogie {
     }
 
     private void setPrenomInZoneDeText(Personne individu, JPanel panel) {
-        JLabel prenomLabel = new JLabel("PRÉNON:");
+        JLabel prenomLabel = new JLabel("PRÉNOM:");
         JTextField prenomField = new JTextField(individu.lesPrenoms().toString());
         panel.add(prenomLabel);
         panel.add(prenomField);
@@ -228,6 +226,34 @@ public class VueGenealogie {
         JCheckBox buttonNom = new JCheckBox("Nom");
         JCheckBox buttonPrenom = new JCheckBox("Prénom");
         JCheckBox buttonDate = new JCheckBox("Date");
+        active = (Personne) genList.getSelectedValue();
+        buttonNom.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (buttonNom.isSelected()) {
+                    active = (Personne) genList.getSelectedValue();
+                    setNomInZoneDeText(active, panel);
+                }
+            }
+        });
+        buttonPrenom.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (buttonPrenom.isSelected()) {
+                    active = (Personne) genList.getSelectedValue();
+                    setPrenomInZoneDeText(active, panel);
+                }
+            }
+        });
+        buttonDate.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (buttonDate.isSelected()) {
+                    active = (Personne) genList.getSelectedValue();
+                    setDateInZoneDeText(active, panel);
+                }
+            }
+        });
         panel.add(buttonNom);
         panel.add(buttonPrenom);
         panel.add(buttonDate);
@@ -235,13 +261,6 @@ public class VueGenealogie {
 
     private void setJlist(JPanel panel) {
         genList = new JList(model);
-        genList.setVisible(false);
-        genList.addListSelectionListener(new ListSelectionListener() {
-            @Override
-            public void valueChanged(ListSelectionEvent e) {
-                active = (Personne) genList.getSelectedValue();
-            }
-        });
         panel.add(genList);
     }
 
@@ -311,7 +330,11 @@ public class VueGenealogie {
         choixDuParent(jDialog);
     }
 
-    private void leParentDialog(JDialog jDialog) {
+    private void leParentDialog() {
+        JDialog jDialog = new JDialog();
+        jDialog.setSize(300, 200);
+        jDialog.setVisible(true);
+        jDialog.setLayout(new FlowLayout(FlowLayout.CENTER));
         jDialog.setTitle("Le parent");
         JLabel instruction = new JLabel("Choix d'un parent");
         JComboBox parentsBox = new JComboBox(getArrayPersone());
@@ -325,6 +348,9 @@ public class VueGenealogie {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Individu activeIndividu = (Individu) parentsBox.getSelectedItem();
+                active = (Personne) genList.getSelectedValue();
+                arbre.definirParent1(active, activeIndividu);
+                jDialog.dispose();
             }
         });
         annulerButton.addActionListener(new ActionListener() {
@@ -337,26 +363,26 @@ public class VueGenealogie {
     }
 
     private void choixDuParent(JDialog jDialog) {
-        JLabel instruction = new JLabel("Est-ce le premier parent ?");
+        JLabel instruction2 = new JLabel("Est-ce le premier parent ?");
         JButton ouiButton = new JButton("OUI");
         JButton annulerButton = new JButton("Annuler");
         JButton nonButton = new JButton("NON");
-        jDialog.add(instruction);
+        jDialog.add(instruction2);
         jDialog.add(ouiButton);
         jDialog.add(nonButton);
         jDialog.add(annulerButton);
         ouiButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                jDialog.removeAll();
-                leParentDialog(jDialog);
+                jDialog.dispose();
+                leParentDialog();
             }
         });
         nonButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                jDialog.removeAll();
-                leParentDialog(jDialog);
+                jDialog.dispose();
+                leParentDialog();
             }
         });
         annulerButton.addActionListener(new ActionListener() {
@@ -381,33 +407,6 @@ public class VueGenealogie {
             arr[i] = arbre.lIndividu(i);
         }
         return arr;
-    }
-
-    private void displayContentInZoneDeTexte(JPanel panel) {
-       /* buttonNom.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (buttonNom.isSelected()){
-                    setNomInZoneDeText(getJlistSelectedIndividu(),panel);
-                }
-            }
-        });
-        buttonPrenom.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (buttonPrenom.isSelected()){
-                    setPrenomInZoneDeText(getJlistSelectedIndividu(),panel);
-                }
-            }
-        });
-        buttonDate.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (buttonDate.isSelected()){
-                    setDateInZoneDeText(getJlistSelectedIndividu(),panel);
-                }
-            }
-        });*/
     }
 
     private void test() {

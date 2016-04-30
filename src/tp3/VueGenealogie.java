@@ -24,12 +24,14 @@ import java.util.TimeZone;
  * Created by SZAI29079604 on 04/04/2016.
  */
 public class VueGenealogie {
-    protected Gen arbre;
+    private Gen arbre;
     private JFrame frame;
     private DefaultListModel model;
     private JList genList;
     private Personne active;
     private JTextArea zoneTexte;
+    private JPanel zoneDeTexte;
+    private boolean parent1 = true;
 
     public VueGenealogie() {
         initialize();
@@ -57,7 +59,7 @@ public class VueGenealogie {
         //
         JPanel panel = new JPanel(new FlowLayout());
         JPanel jListPanel = new JPanel(new FlowLayout());
-        JPanel zoneDeTexte = new JPanel(new GridLayout(3, 2, 0, 5));
+        zoneDeTexte = new JPanel(new FlowLayout());
         //
         setJlist(jListPanel);
         setZoneTexte(zoneDeTexte);
@@ -119,6 +121,7 @@ public class VueGenealogie {
             @Override
             public void actionPerformed(ActionEvent e) {
                 model.clear();
+                active = (Personne) genList.getSelectedValue();
                 for (Individu personne : getArrayOfIndividu(arbre.lesEnfants(null, active))) {
                     model.addElement(personne);
                     genList.setVisible(true);
@@ -130,6 +133,7 @@ public class VueGenealogie {
             @Override
             public void actionPerformed(ActionEvent e) {
                 model.clear();
+                active = (Personne) genList.getSelectedValue();
                 for (Individu personne : getArrayOfIndividu(arbre.lesParents(active))) {
                     model.addElement(personne);
                     genList.setVisible(true);
@@ -141,6 +145,7 @@ public class VueGenealogie {
             @Override
             public void actionPerformed(ActionEvent e) {
                 model.clear();
+                active = (Personne) genList.getSelectedValue();
                 for (Individu personne : getArrayOfIndividu(arbre.laFratrie(active))) {
                     model.addElement(personne);
                     genList.setVisible(true);
@@ -152,6 +157,7 @@ public class VueGenealogie {
             @Override
             public void actionPerformed(ActionEvent e) {
                 model.clear();
+                active = (Personne) genList.getSelectedValue();
                 for (Individu personne : getArrayOfIndividu(arbre.lesPetitsEnfants(null, active))) {
                     model.addElement(personne);
                     genList.setVisible(true);
@@ -232,7 +238,7 @@ public class VueGenealogie {
             public void actionPerformed(ActionEvent e) {
                 if (buttonNom.isSelected()) {
                     active = (Personne) genList.getSelectedValue();
-                    setNomInZoneDeText(active, panel);
+                    setNomInZoneDeText(active, zoneDeTexte);
                 }
             }
         });
@@ -241,7 +247,7 @@ public class VueGenealogie {
             public void actionPerformed(ActionEvent e) {
                 if (buttonPrenom.isSelected()) {
                     active = (Personne) genList.getSelectedValue();
-                    setPrenomInZoneDeText(active, panel);
+                    setPrenomInZoneDeText(active, zoneDeTexte);
                 }
             }
         });
@@ -250,7 +256,7 @@ public class VueGenealogie {
             public void actionPerformed(ActionEvent e) {
                 if (buttonDate.isSelected()) {
                     active = (Personne) genList.getSelectedValue();
-                    setDateInZoneDeText(active, panel);
+                    setDateInZoneDeText(active, zoneDeTexte);
                 }
             }
         });
@@ -349,7 +355,11 @@ public class VueGenealogie {
             public void actionPerformed(ActionEvent e) {
                 Individu activeIndividu = (Individu) parentsBox.getSelectedItem();
                 active = (Personne) genList.getSelectedValue();
-                arbre.definirParent1(active, activeIndividu);
+                if (parent1) {
+                    arbre.definirParent1(active, activeIndividu);
+                } else {
+                    arbre.definirParent2(active, activeIndividu);
+                }
                 jDialog.dispose();
             }
         });
@@ -381,6 +391,7 @@ public class VueGenealogie {
         nonButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                parent1 = false;
                 jDialog.dispose();
                 leParentDialog();
             }

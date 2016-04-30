@@ -14,9 +14,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.StringTokenizer;
-import java.util.TimeZone;
 
 /*
  * Created by SZAI29079604 on 04/04/2016.
@@ -51,7 +49,6 @@ public class VueGenealogie {
         frame = new JFrame();
         arbre = new Gen();
         model = new DefaultListModel();
-        test();
         //
         JPanel panel = new JPanel(new FlowLayout());
         JPanel jListPanel = new JPanel(new FlowLayout());
@@ -97,8 +94,9 @@ public class VueGenealogie {
         JMenu explorationMenu = new JMenu("Exploration");
         JMenuItem kidsMenuItem = new JMenuItem("Les enfants");
         kidsMenuItem.addActionListener(e -> {
-            model.clear();
+            genList.setVisible(true);
             if (genList.getSelectedValue() != null) {
+                model.clear();
                 active = (Personne) genList.getSelectedValue();
                 for (Individu personne : getArrayOfIndividu(arbre.lesEnfants(null, active))) {
                     model.addElement(personne);
@@ -111,9 +109,10 @@ public class VueGenealogie {
         });
         JMenuItem parentsMenuItem = new JMenuItem("Les parents");
         parentsMenuItem.addActionListener(e -> {
-            model.clear();
+            genList.setVisible(true);
             if (genList.getSelectedValue() != null) {
                 active = (Personne) genList.getSelectedValue();
+                model.clear();
                 for (Individu personne : getArrayOfIndividu(arbre.lesParents(active))) {
                     model.addElement(personne);
                     genList.setVisible(true);
@@ -125,9 +124,9 @@ public class VueGenealogie {
         });
         JMenuItem brothersMenuItem = new JMenuItem("Les frères");
         brothersMenuItem.addActionListener(e -> {
-            model.clear();
             if (genList.getSelectedValue() != null) {
                 active = (Personne) genList.getSelectedValue();
+                model.clear();
                 for (Individu personne : getArrayOfIndividu(arbre.laFratrie(active))) {
                     model.addElement(personne);
                     genList.setVisible(true);
@@ -328,11 +327,11 @@ public class VueGenealogie {
             if (genList.getSelectedValue() != null) {
                 active = (Personne) genList.getSelectedValue();
                 if (parent1) {
-                    arbre.definirParent1(active, activeIndividu);
-                    JOptionPane.showMessageDialog(new JDialog(), active + " est devenu le parent1 de " + activeIndividu);
+                    arbre.definirParent1(activeIndividu, active);
+                    JOptionPane.showMessageDialog(new JDialog(), activeIndividu + " est devenu le parent1 de " + active);
                 } else {
-                    arbre.definirParent2(active, activeIndividu);
-                    JOptionPane.showMessageDialog(new JDialog(), active + " est devenu le parent2 de " + activeIndividu);
+                    arbre.definirParent2(activeIndividu, active);
+                    JOptionPane.showMessageDialog(new JDialog(), activeIndividu + " est devenu le parent2 de " + active);
                 }
             } else {
                 JOptionPane.showMessageDialog(new JDialog(), "aucun individu sélectionner");
@@ -380,36 +379,6 @@ public class VueGenealogie {
             arr[i] = arbre.lIndividu(i);
         }
         return arr;
-    }
-
-    // Remplis l'arbre avec les personnes pour les test
-    @SuppressWarnings("unchecked")
-    private void test() {
-        DateFormat dfm = new SimpleDateFormat("Y");
-        dfm.setTimeZone(TimeZone.getTimeZone("Canada/Montreal"));
-        Personne[] testTab = new Personne[15];
-        try {
-            testTab[0] = new Personne("Tremblay", new ArrayList<>(Collections.singletonList("Guy")), dfm.parse("1990"));
-            testTab[1] = new Personne("Mili", new ArrayList<>(Collections.singletonList("Hafedh")), dfm.parse("1994"));
-            testTab[2] = new Personne("Gagnon", new ArrayList<>(Collections.singletonList("Étienne")), dfm.parse("1991"));
-            testTab[3] = new Personne("Laforest", new ArrayList<>(Collections.singletonList("Louise")), dfm.parse("1992"));
-            testTab[4] = new Personne("Cherkaoui", new ArrayList<>(Collections.singletonList("Omar")), dfm.parse("1967"));
-            testTab[5] = new Personne("Kerhervé", new ArrayList<>(Collections.singletonList("Brigitte")), dfm.parse("1965"));
-            testTab[6] = new Personne("Moha", new ArrayList<>(Collections.singletonList("Naouel")), dfm.parse("1964"));
-            testTab[7] = new Personne("Boukadoum", new ArrayList<>(Collections.singletonList("Mounir")), dfm.parse("1963"));
-            testTab[8] = new Personne("Villemaire", new ArrayList<>(Collections.singletonList("Roger")), dfm.parse("1945"));
-            testTab[9] = new Personne("Dupuis", new ArrayList<>(Collections.singletonList("Robert")), dfm.parse("1940"));
-            testTab[10] = new Personne("Gabrini", new ArrayList<>(Collections.singletonList("Philippe")), dfm.parse("1941"));
-            testTab[11] = new Personne("Bergeron", new ArrayList<>(Collections.singletonList("Anne")), dfm.parse("1923"));
-            testTab[12] = new Personne("Davidson", new ArrayList<>(Collections.singletonList("Paul")), dfm.parse("1948"));
-            testTab[13] = new Personne("Makarenkov", new ArrayList<>(Collections.singletonList("Vladimir")), dfm.parse("1962"));
-            testTab[14] = new Personne("Bouisset", new ArrayList<>(Collections.singletonList("Marc")), dfm.parse("1922"));
-        } catch (ParseException ex) {
-            ex.printStackTrace();
-        }
-        for (Personne aTestTab : testTab) {
-            arbre.ajout(aTestTab);
-        }
     }
 
     //Je n'arrive pas à faire fonctionner les TEST que vous nous avez fournis cependant quand j'évalue au débug, mes list sont bien former.

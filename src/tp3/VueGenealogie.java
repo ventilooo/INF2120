@@ -98,7 +98,11 @@ public class VueGenealogie {
         JMenuItem kidsMenuItem = new JMenuItem("Les enfants");
         kidsMenuItem.addActionListener(e -> {
             model.clear();
-            active = (Personne) genList.getSelectedValue();
+            if (genList.getSelectedValue() != null) {
+                active = (Personne) genList.getSelectedValue();
+            } else {
+                JOptionPane.showMessageDialog(new JDialog(), "aucun individu sélectionner");
+            }
             for (Individu personne : getArrayOfIndividu(arbre.lesEnfants(null, active))) {
                 model.addElement(personne);
                 genList.setVisible(true);
@@ -107,7 +111,11 @@ public class VueGenealogie {
         JMenuItem parentsMenuItem = new JMenuItem("Les parents");
         parentsMenuItem.addActionListener(e -> {
             model.clear();
-            active = (Personne) genList.getSelectedValue();
+            if (genList.getSelectedValue() != null) {
+                active = (Personne) genList.getSelectedValue();
+            } else {
+                JOptionPane.showMessageDialog(new JDialog(), "aucun individu sélectionner");
+            }
             for (Individu personne : getArrayOfIndividu(arbre.lesParents(active))) {
                 model.addElement(personne);
                 genList.setVisible(true);
@@ -116,7 +124,11 @@ public class VueGenealogie {
         JMenuItem brothersMenuItem = new JMenuItem("Les frères");
         brothersMenuItem.addActionListener(e -> {
             model.clear();
-            active = (Personne) genList.getSelectedValue();
+            if (genList.getSelectedValue() != null) {
+                active = (Personne) genList.getSelectedValue();
+            } else {
+                JOptionPane.showMessageDialog(new JDialog(), "aucun individu sélectionner");
+            }
             for (Individu personne : getArrayOfIndividu(arbre.laFratrie(active))) {
                 model.addElement(personne);
                 genList.setVisible(true);
@@ -125,7 +137,11 @@ public class VueGenealogie {
         JMenuItem grandKidsMenuItem = new JMenuItem("Les petits enfants");
         grandKidsMenuItem.addActionListener(e -> {
             model.clear();
-            active = (Personne) genList.getSelectedValue();
+            if (genList.getSelectedValue() != null) {
+                active = (Personne) genList.getSelectedValue();
+            } else {
+                JOptionPane.showMessageDialog(new JDialog(), "aucun individu sélectionner");
+            }
             for (Individu personne : getArrayOfIndividu(arbre.lesPetitsEnfants(null, active))) {
                 model.addElement(personne);
                 genList.setVisible(true);
@@ -254,7 +270,7 @@ public class VueGenealogie {
                 arbre.ajout(moi);
                 jDialog.dispose();
             } catch (ParseException E) {
-                E.printStackTrace();
+                JOptionPane.showMessageDialog(new JDialog(), "Date invalide");
             }
         });
         JButton cancelButton = new JButton("Cancel");
@@ -306,13 +322,15 @@ public class VueGenealogie {
             Individu activeIndividu = (Individu) parentsBox.getSelectedItem();
             if (genList.getSelectedValue() != null) {
                 active = (Personne) genList.getSelectedValue();
+            } else {
+                JOptionPane.showMessageDialog(new JDialog(), "aucun individu sélectionner");
             }
             if (parent1) {
                 arbre.definirParent1(active, activeIndividu);
             } else {
                 arbre.definirParent2(active, activeIndividu);
             }
-            System.out.println(active + " est parent de " + activeIndividu);
+            System.out.println(active + " est parent de " + activeIndividu); //TODO REMOVE
             jDialog.dispose();
 
         });

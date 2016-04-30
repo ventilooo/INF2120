@@ -14,7 +14,9 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.StringTokenizer;
+import java.util.TimeZone;
 
 /*
  * Created by SZAI29079604 on 04/04/2016.
@@ -61,6 +63,7 @@ public class VueGenealogie {
         panel.add(jListPanel);
         panel.add(zoneDeTexte);
         createToolBar(frame);
+        test();
         //
         frame.add(panel);
     }
@@ -113,10 +116,6 @@ public class VueGenealogie {
             if (genList.getSelectedValue() != null) {
                 active = (Personne) genList.getSelectedValue();
                 model.clear();
-                System.out.println(active);
-                System.out.println(active.leParent1());
-                System.out.println(active.leParent2());
-                System.out.println(arbre.lesParents(active));
                 for (Individu personne : getArrayOfIndividu(arbre.lesParents(active))) {
                     model.addElement(personne);
                     genList.setVisible(true);
@@ -191,6 +190,7 @@ public class VueGenealogie {
     private void setZoneTexte(JPanel panel) {
         zoneTexte = new JTextArea();
         zoneTexte.setBackground(Color.orange);
+        zoneTexte.setLocation(250, 250);
         frame.setBounds(300, 300, 1000, 1000);
         zoneTexte.setPreferredSize(new Dimension(500, 350));
         panel.add(zoneTexte);
@@ -275,7 +275,7 @@ public class VueGenealogie {
                 DateFormat dfm = new SimpleDateFormat("dd-MM-YYYY");
                 Personne moi = new Personne(nameField.getText(), getPrenoms(prenomsField.getText()), dfm.parse(dateField.getText()));
                 arbre.ajout(moi);
-                JOptionPane.showMessageDialog(new JDialog(), moi + " à été ajouter");
+                JOptionPane.showMessageDialog(new JDialog(), moi + " a été ajouté");
                 jDialog.dispose();
             } catch (ParseException E) {
                 JOptionPane.showMessageDialog(new JDialog(), "Date invalide");
@@ -377,12 +377,52 @@ public class VueGenealogie {
         return arr;
     }
 
-    private Individu[] getArrayOfIndividu(Liste liste) {
+    private Individu[] getArrayOfIndividu(Liste<Individu> liste) {
         Individu[] arr = new Personne[liste.longueur()];
         for (int i = 0; i < liste.longueur(); i++) {
-            arr[i] = arbre.lIndividu(i);
+            arr[i] = liste.elementPosition(i);
         }
         return arr;
+    }
+
+    @SuppressWarnings("unchecked")
+    private void test() {
+        DateFormat dfm = new SimpleDateFormat("Y");
+        dfm.setTimeZone(TimeZone.getTimeZone("Canada/Montreal"));
+        try {
+            Personne p1 = new Personne("Tremblay", new ArrayList<String>(Arrays.asList("Guy")), dfm.parse("1990"));
+            Personne p2 = new Personne("Mili", new ArrayList<String>(Arrays.asList("Hafedh")), dfm.parse("1994"));
+            Personne p3 = new Personne("Gagnon", new ArrayList<String>(Arrays.asList("Étienne")), dfm.parse("1991"));
+            Personne p4 = new Personne("Laforest", new ArrayList<String>(Arrays.asList("Louise")), dfm.parse("1992"));
+            Personne p5 = new Personne("Cherkaoui", new ArrayList<String>(Arrays.asList("Omar")), dfm.parse("1967"));
+            Personne p6 = new Personne("Kerhervé", new ArrayList<String>(Arrays.asList("Brigitte")), dfm.parse("1965"));
+            Personne p7 = new Personne("Moha", new ArrayList<String>(Arrays.asList("Naouel")), dfm.parse("1964"));
+            Personne p8 = new Personne("Boukadoum", new ArrayList<String>(Arrays.asList("Mounir")), dfm.parse("1963"));
+            Personne p9 = new Personne("Villemaire", new ArrayList<String>(Arrays.asList("Roger")), dfm.parse("1945"));
+            Personne p10 = new Personne("Dupuis", new ArrayList<String>(Arrays.asList("Robert")), dfm.parse("1940"));
+            Personne p11 = new Personne("Gabrini", new ArrayList<String>(Arrays.asList("Philippe")), dfm.parse("1941"));
+            Personne p12 = new Personne("Bergeron", new ArrayList<String>(Arrays.asList("Anne")), dfm.parse("1923"));
+            Personne p13 = new Personne("Davidson", new ArrayList<String>(Arrays.asList("Paul")), dfm.parse("1948"));
+            Personne p14 = new Personne("Makarenkov", new ArrayList<String>(Arrays.asList("Vladimir")), dfm.parse("1962"));
+            Personne p15 = new Personne("Bouisset", new ArrayList<String>(Arrays.asList("Marc")), dfm.parse("1922"));
+            arbre.ajout(p1);
+            arbre.ajout(p2);
+            arbre.ajout(p3);
+            arbre.ajout(p4);
+            arbre.ajout(p5);
+            arbre.ajout(p6);
+            arbre.ajout(p7);
+            arbre.ajout(p8);
+            arbre.ajout(p9);
+            arbre.ajout(p10);
+            arbre.ajout(p11);
+            arbre.ajout(p12);
+            arbre.ajout(p13);
+            arbre.ajout(p14);
+            arbre.ajout(p15);
+        } catch (ParseException ex) {
+            ex.printStackTrace();
+        }
     }
 
     //Je n'arrive pas à faire fonctionner les TEST que vous nous avez fournis cependant quand j'évalue au débug, mes list sont bien former.
